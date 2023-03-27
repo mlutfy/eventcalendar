@@ -166,6 +166,12 @@ class CRM_EventCalendar_Page_ShowEvents extends CRM_Core_Page {
 
     $events['displayEventEnd'] = 'true';
 
+    $locale = CRM_Core_I18n::getLocale();
+    $this->assign('eventcalendar_locale', substr($locale, 0, 2));
+    $this->assign('eventcalendar_monthNames', json_encode(array_values(CRM_Utils_Date::getFullMonthNames())));
+    $this->assign('eventcalendar_dayNames', json_encode(array_values(CRM_Utils_Date::getFullWeekdayNames())));
+    $this->assign('eventcalendar_dayNamesShort', json_encode(array_values(CRM_Utils_Date::getAbbrWeekdayNames())));
+
     //Check weekBegin settings from calendar configuration
     $weekBegins = '';
     if(isset($settings['week_begins_from_day']) && $settings['week_begins_from_day'] == 1) {

@@ -61,7 +61,37 @@ function buildCalendar( ) {
     displayEventEnd: true,
     displayEventTime: showTime ? 1 : 0,
     firstDay:weekStartDay,
-    timeFormat: 'h(:mm)A',
+
+    timeFormat: {/literal}{if $locale == 'fr'}'H:mm'{else}'h(:mm)A'{/if}{literal},
+    locale: {/literal}'{$locale}'{literal},
+    monthNames: {/literal}{$eventcalendar_monthNames}{literal},
+    dayNames: {/literal}{$eventcalendar_dayNames}{literal},
+    dayNamesShort: {/literal}{$eventcalendar_dayNamesShort}{literal},
+    {/literal}
+    {if $eventcalendar_locale == 'fr'}
+    {literal}
+        code: "{$locale}",
+        week: {
+            dow: 1,
+            doy: 4 // The week that contains Jan 4th is the first week of the year.
+        },
+        buttonText: {
+            prev: "Précédent",
+            next: "Suivant",
+            today: "Aujourd'hui",
+            year: "Année",
+            month: "Mois",
+            week: "Semaine",
+            day: "Jour",
+            list: "Mon calendrier"
+        },
+        weekLabel: "Sem.",
+        allDayHtml: "Toute la<br/>journée",
+        eventLimitText: "en plus",
+        noEventsMessage: "Aucun événement à afficher",
+    {/literal}
+    {/if}
+    {literal}
     header: {
       left: 'prev,next today',
       center: 'title',
