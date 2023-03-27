@@ -61,9 +61,8 @@ function buildCalendar( ) {
     displayEventEnd: true,
     displayEventTime: showTime ? 1 : 0,
     firstDay:weekStartDay,
-
-    timeFormat: {/literal}{if $locale == 'fr'}'H:mm'{else}'h(:mm)A'{/if}{literal},
-    locale: {/literal}'{$locale}'{literal},
+    timeFormat: {/literal}{if $eventcalendar_locale == 'fr'}'H:mm'{else}'h(:mm)A'{/if}{literal},
+    locale: {/literal}'{$eventcalendar_locale}'{literal},
     monthNames: {/literal}{$eventcalendar_monthNames}{literal},
     dayNames: {/literal}{$eventcalendar_dayNames}{literal},
     dayNamesShort: {/literal}{$eventcalendar_dayNamesShort}{literal},
