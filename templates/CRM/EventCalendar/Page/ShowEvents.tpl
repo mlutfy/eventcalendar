@@ -93,7 +93,10 @@ function buildCalendar() {
     {/literal}
     {/if}
     {literal}
+<<<<<<< HEAD
 >>>>>>> 199daf8 (Partial fixes to support French)
+=======
+>>>>>>> ff4413636dd3a6284d59d63af4444d20d1b24bba
     header: {
       left: 'prev,next today',
       center: 'title',
